@@ -5,11 +5,11 @@
         <!-- <link href="./estilo.css" rel="stylesheet">  -->
         <!-- <script async src="./index.js"></script> -->
     </head>
-    <body class="contido-html">
+    <body id="contido-html">
     <!--Apartado A: Crea unha etiqueta ‘p’-->
         <p id="texto1">Escribo texto dentro dunha etiqueta p</p>
     <!--Apartado B: Crea unha etiqueta ‘p’-->
-        <div class="div-texto">Escribo texto dentro dunha etiqueta div</div>
+        <div id="div-texto">Escribo texto dentro dunha etiqueta div</div>
     <!--Apartado C: Crea unha lista desordenada (ul,li)-->
         <ul id="lista-contido">
             <li>Primeiro elemento</li>
@@ -19,7 +19,7 @@
     <!--Apartado D: Crea un botón-->
         <button id="boton">Pulsa aquí</button>
     <!--Apartado E: Crea unha táboa-->
-        <table class="taboa1">
+        <table id="taboa1">
         <tr>
         <th id="taboa1-header">Columna1</th> <!--table header-->
         <th>Columna2</th>
@@ -39,6 +39,15 @@
         </table>
     </body>
     <script>
-   console.log(document.getElementsByClassName("div-texto").previousSibling)
+     console.log(document.getElementById("div-texto").previousSibling)
+     console.log(document.getElementById("lista-contido").children)
+     console.log(document.getElementById("contido-html").children[0]) 
+     //tambien podria concatenar .previousSibling
+     //console.log(document.getElementById("lista-contido").previousSibling.previousSibling.previousSibling)
+     console.log(document.getElementById("contido-html").children[4]) 
+     console.log(document.getElementById("contido-html").children[4].children[0].children[1].children[0])
+     console.log(document.getElementById("taboa1").previousElementSibling.previousElementSibling.previousElementSibling)
+     console.log(document.getElementById("taboa1").children[0].children[1].children[0])
+     console.log(document.getElementById("div-texto").nextElementSibling.nextElementSibling.nextElementSibling)
     </script>
 </html>
