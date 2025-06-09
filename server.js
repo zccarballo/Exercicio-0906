@@ -1,11 +1,6 @@
 const express = require("express");
-const path = require("path");
+const path = require("path"); //relacionado con crear y compartir directorios
 const app = express();
-
-// use
-//app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({extended: true}))
 
 // Accedo o arquivo estático
 app.use(express.static(path.join(__dirname, "static")));
