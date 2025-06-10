@@ -10,7 +10,7 @@
     <p id="segundo-texto-posicion" style="background-color: violet;">elemento que uso de referencia para usar .after</p>
     <button id="boton">Engadir atributo</button>
     <div>
-    <input placeholder="Escribir texto aquí" type="text" id="input" />
+    <input placeholder="Escribir nombre aquí" type="text" id="input" name="Formulario"/>
     <button id="botonEnviar">Enviar</button>
     </div>
     </body>
@@ -26,12 +26,12 @@
     paragrafo2.innerHTML = "inserto un parágrafo despois do elemento de referencia"; 
     referencia2.after(paragrafo2) //posiciono o elemento DESPOIS do <p> orixinal do html
     //APARTADO C
+    let boton = document.querySelector("#boton");
     let textoAtributo = document.createElement('p');
     textoAtributo.setAttribute("class", "estilo-p");
     textoAtributo.innerHTML = "inserto un parágrafo con atributo";
-    document.body.append(textoAtributo);
+    boton.after(textoAtributo);
     //APARTADO D
-    let boton = document.querySelector("#boton");
     boton.addEventListener ("click", () => {
         console.log("Inserto a etiqueta do apartado C: ", textoAtributo);
     })
@@ -54,9 +54,12 @@
     })
     //APARTADO G
     let botonEnviar = document.getElementById("botonEnviar");
+    let formulario = document.getElementById("input");
     botonEnviar.addEventListener ("click", () =>{
-    console.log("Evento para ler o contido: ", input);
-    
+    console.log("Evento para ler o contido: ", input.value);
+    let etiquetaP = document.createElement('p');
+    etiquetaP.innerHTML = "Este es el nombre introducido: " + input.value;
+    formulario.after(etiquetaP);
     })
 
 
