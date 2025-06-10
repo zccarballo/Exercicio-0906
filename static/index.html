@@ -38,6 +38,13 @@
     document.body.append(botonLista);
     botonLista.addEventListener ("click", () =>{
         let listaDesplegable = document.createElement('ol');
+        listaDesplegable.innerHTML= `
+        <li>Elemento1</li>
+        <li>Elemento2</li>
+        <li>Elemento3</li>
+        <li>Elemento4</li>
+        <li>Elemento5 <img src="./imaxes/small-button.png"></li>
+    	 `;
 
     })
 
