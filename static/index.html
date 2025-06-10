@@ -9,6 +9,10 @@
     <p id="texto-posicion" style="background-color: pink;">elemento que uso de referencia para usar .before</p>
     <p id="segundo-texto-posicion" style="background-color: violet;">elemento que uso de referencia para usar .after</p>
     <button id="boton">Engadir atributo</button>
+    <div>
+    <input placeholder="Escribir texto aquí" type="text" id="input" />
+    <button id="botonEnviar">Enviar</button>
+    </div>
     </body>
     <script>
     //APARTADO A
@@ -43,9 +47,16 @@
         <li>Elemento2</li>
         <li>Elemento3</li>
         <li>Elemento4</li>
-        <li>Elemento5 <img src="./imaxes/small-button.png"></li>
+        <li>Elemento5 <img src="imaxes/small-button.png" width="60" height="27" id="imaxe"></li>
     	 `;
-
+        document.body.append(listaDesplegable);
+        console.log("Contido da lista: ", listaDesplegable)
+    })
+    //APARTADO G
+    let botonEnviar = document.getElementById("botonEnviar");
+    botonEnviar.addEventListener ("click", () =>{
+    console.log("Evento para ler o contido: ", input);
+    
     })
 
 
