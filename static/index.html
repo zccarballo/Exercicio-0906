@@ -5,57 +5,95 @@
         <!-- <link href="./estilo.css" rel="stylesheet">  -->
         <!-- <script async src="./index.js"></script> -->
     </head>
-    <body id="contido-html">
-    <!--Apartado A: Crea unha etiqueta ‘p’-->
-        <p id="texto1">Escribo texto dentro dunha etiqueta p</p>
-    <!--Apartado B: Crea unha etiqueta ‘p’-->
-        <div id="div-texto">Escribo texto dentro dunha etiqueta div</div>
-    <!--Apartado C: Crea unha lista desordenada (ul,li)-->
-        <ul id="lista-contido">
-            <li>Primeiro elemento</li>
-            <li>Segundo elemento</li>
-            <li>Terceiro elemento</li>
-        </ul>
-    <!--Apartado D: Crea un botón-->
-        <button id="boton">Pulsa aquí</button>
-    <!--Apartado E: Crea unha táboa-->
-        <table id="taboa1">
-        <tr>
-        <th id="taboa1-header">Columna1</th> <!--table header-->
-        <th>Columna2</th>
-        </tr>
-        <tr> <!--table row-->
-            <td id="taboa1-dato1">Dato1</td> <!--table data-->
-            <td>Dato2</td>
-        </tr>
-        <tr>
-            <td>Dato3</td>
-            <td>Dato4</td>
-        </tr>
-                <tr>
-            <td>Dato5</td>
-            <td>Dato6</td>
-        </tr>
-        </table>
+   <body> 
+    <h1 style="background-color:powderblue; font-size: 12px;">APARTADO A</h1>
+    <button id="boton2">Evento con botón</button>
+    <p id="textoEvento">Boas a todos</p>
+    <h1 style="background-color:powderblue; font-size: 12px;">APARTADO B</h1>
+    <button id="boton3">Boton para texto calquera</button>
+    <p id="textoCalquera">Texto calquera</p>
+    <h1 style="background-color:powderblue; font-size: 12px;">APARTADO C,D,E</h1>
+    <button id="boton4">Boton para lista</button>
+    <ol id="listaOrdeada">
+        <li>Ola</li>
+        <li>Que</li>
+        <li>Tal</li>
+        <li>Como</li>
+        <li>Estas</li>
+    </ol>
+    <h1 style="background-color:powderblue; font-size: 12px;">APARTADO F</h1>
+    <ul id="listaDesordeada">
+        <li>Bien</li>
+        <li>Tu</li>
+        <li>Muy</li>
+        <li>Tal <span>????</span></li>
+        <li>Que</li>
+    </ul>
+    <h1 style="background-color:powderblue; font-size: 12px;">APARTADO G</h1>
+    <ul id="listaImaxe">
+        <li>Isto</li>
+        <li>é</li>
+        <li>un</li>
+        <li>botón: <img src="imaxes/small-button.png" width="60" height="27" id="imaxe"></li>
+    </ul>
+
     </body>
     <script>
-     //Apartado A
-     console.log(document.getElementById("div-texto").previousSibling)
-     //Apartado B
-     console.log(document.getElementById("lista-contido").children)
-     //Apartado C
-     console.log(document.getElementById("contido-html").children[0]) 
-     //tambien podria concatenar .previousSibling
-     //console.log(document.getElementById("lista-contido").previousSibling.previousSibling.previousSibling)
-     //Apartado D
-     console.log(document.getElementById("contido-html").children[4]) 
-     //Apartado D.1
-     console.log(document.getElementById("contido-html").children[4].children[0].children[1].children[0])
-     //Apartado E
-     console.log(document.getElementById("taboa1").previousElementSibling.previousElementSibling.previousElementSibling)
-     //Apartado F
-     console.log(document.getElementById("taboa1").children[0].children[1].children[0])
-     //Apartado G
-     console.log(document.getElementById("div-texto").nextElementSibling.nextElementSibling.nextElementSibling)
+    //Apartado A
+    const boton2 = document.querySelector("#boton2");
+    const textoEvento = document.querySelector("#textoEvento");
+    boton2.addEventListener("click", () => {
+    console.log(textoEvento.textContent);
+      });
+    //Apartado B
+    const boton3 = document.querySelector("#boton3");
+    const textoCalquera = document.querySelector("#textoCalquera");
+    boton3.addEventListener("click", () => {
+    console.log(boton3.nextElementSibling, textoCalquera.textContent);
+      });
+    //Apartado C
+    const boton4 = document.querySelector("#boton4");
+    const listaOrdeada = document.querySelector("#listaOrdeada");
+    boton4.addEventListener("click", () => {
+    console.log(boton4.nextElementSibling, listaOrdeada.textContent);
+      });
+    //Apartado D
+    const primeiroElemento = listaOrdeada.querySelector("li");
+    primeiroElemento.addEventListener("click", () => {
+    console.log("Contido da lista completa:", listaOrdeada.innerHTML);
+    console.log("Texto do primeiro elemento:", primeiroElemento.textContent);
+    });
+    //Apartado E
+    const elementos = listaOrdeada.querySelectorAll("li");
+    const terceiroElemento = elementos[2];
+    terceiroElemento.addEventListener("click", () => {
+    console.log("Contido da lista completa:", listaOrdeada.innerHTML);
+    console.log("Texto do terceiro elemento:", terceiroElemento.textContent);
+    });
+    //Apartado F
+    const listaDesordeada = document.querySelector("#listaDesordeada");
+    listaDesordeada.addEventListener("click", () => {
+        console.log("O elemento clickado é: ", event.target);
+      });
+    // OJO! Cambia la expresion con e.target
+    // listaDesordeada.addEventListener("click", (e) => {
+    // console.log("O elemento clickado é: ", e.target);
+    // });
+    //APARTADO G
+    const listaImaxe = document.querySelector("#listaImaxe");
+    const imaxeBoton = listaImaxe.querySelector("img");
+    imaxeBoton.addEventListener("click", () => {
+        console.log("Contido da lista completa:", listaImaxe.innerHTML);
+        console.log("Clickei a imaxe: ", event.target);
+      });
+    //Apartado H
+    const elementosListaImaxe = listaImaxe.querySelectorAll("li");
+    console.log(elementosListaImaxe);
+    const imaxeLista = document.getElementById("imaxe");
+    const terceiroElementoListaImaxe = elementosListaImaxe[3];
+    imaxeLista.addEventListener("click", () =>{
+        console.log("Contido da lista", listaImaxe.innerHTML)
+        console.log("Texto no <li> da imaxe: ", terceiroElementoListaImaxe)
+    })
     </script>
 </html>
